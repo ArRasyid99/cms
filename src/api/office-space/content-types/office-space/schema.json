@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "office_spaces",
+  "info": {
+    "singularName": "office-space",
+    "pluralName": "office-spaces",
+    "displayName": "Office Space",
+    "description": "Produk/layanan office space"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "duration": {
+      "type": "string"
+    },
+    "about": {
+      "type": "text"
+    },
+    "address": {
+      "type": "text"
+    },
+    "rating": {
+      "type": "decimal",
+      "default": 0
+    },
+    "tags": {
+      "type": "json"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.feature"
+    },
+    "salesContact": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.sales-contact"
+    },
+    "isFullBooked": {
+      "type": "boolean",
+      "default": false
+    },
+    "city": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::city.city",
+      "inversedBy": "officeSpaces"
+    }
+  }
+}

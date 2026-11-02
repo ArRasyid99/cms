@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "activities",
+  "info": {
+    "singularName": "activity",
+    "pluralName": "activities",
+    "displayName": "Activity",
+    "description": "Kegiatan dan program"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nama": {
+      "type": "string",
+      "required": true
+    },
+    "tanggal": {
+      "type": "date",
+      "required": true
+    },
+    "waktu": {
+      "type": "string"
+    },
+    "penanggungJawab": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["terjadwal", "berjalan", "selesai"],
+      "default": "terjadwal"
+    }
+  }
+}

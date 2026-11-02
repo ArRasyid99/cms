@@ -11,12 +11,15 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "strapi": "strapi",
+    "setup:admin": "node scripts/bootstrap-admin.mjs",
+    "setup:roles": "node scripts/bootstrap-roles.mjs",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
     "@strapi/database": "5.60.0",
     "@strapi/plugin-cloud": "5.60.0",
+    "@strapi/plugin-graphql": "^5.60.0",
     "@strapi/plugin-users-permissions": "5.60.0",
     "@strapi/strapi": "5.60.0",
     "mysql2": "3.20.0",
@@ -38,5 +41,12 @@
   "strapi": {
     "uuid": "aeeb0dd5-6164-41d4-9466-f3167c0959dd",
     "installId": "63682b4522b798c7c4a13a9afddfeb0e542fffdd7425eac9bcc7d9bbc614784a"
+  },
+  "allowScripts": {
+    "@swc/core@1.16.21": true,
+    "esbuild@0.28.2": true,
+    "esbuild@0.25.12": true,
+    "core-js-pure@3.51.0": true,
+    "@apollo/protobufjs@1.2.8": true
   }
 }

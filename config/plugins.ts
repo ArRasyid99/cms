@@ -24,6 +24,19 @@ const deniedTypes = [
 ];
 
 const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin => ({
+  graphql: {
+    enabled: true,
+    config: {
+      endpoint: '/graphql',
+      shadowCRUD: true,
+      playgroundAlways: false,
+      depthLimit: 10,
+      amountLimit: 100,
+      apolloServer: {
+        tracing: false,
+      },
+    },
+  },
   'users-permissions': {
     config: {
       jwtManagement: 'refresh',
@@ -34,6 +47,7 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin =>
   },
   upload: {
     config: {
+      sizeLimit: 10 * 1024 * 1024,
       security: {
         allowedTypes: allowedMediaTypes,
         deniedTypes,

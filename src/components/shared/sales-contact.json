@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_sales_contacts",
+  "info": {
+    "displayName": "Sales Contact",
+    "description": "Kontak sales office space"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "role": {
+      "type": "string"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}
