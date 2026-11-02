@@ -1,0 +1,42 @@
+{
+    "kind": "collectionType",
+    "collectionName": "transactions",
+    "info": {
+        "singularName": "transaction",
+        "pluralName": "transactions",
+        "displayName": "Transaction",
+        "description": "Transaksi pemasukan/pengeluaran"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "tanggal": {
+            "type": "date",
+            "required": true
+        },
+        "tipe": {
+            "type": "enumeration",
+            "enum": ["pemasukan", "pengeluaran"],
+            "required": true
+        },
+        "sumber_kategori": {
+            "type": "string",
+            "required": true
+        },
+        "nominal": {
+            "type": "decimal",
+            "required": true
+        },
+        "keterangan": {
+            "type": "text"
+        },
+        "lampiran": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": ["images", "files"]
+        }
+    }
+}

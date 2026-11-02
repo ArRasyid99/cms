@@ -1,0 +1,38 @@
+{
+    "kind": "collectionType",
+    "collectionName": "financial_reports",
+    "info": {
+        "singularName": "financial-report",
+        "pluralName": "financial-reports",
+        "displayName": "Financial Report",
+        "description": "Dokumen laporan keuangan periodik"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "periode": {
+            "type": "string",
+            "required": true
+        },
+        "reportType": {
+            "type": "enumeration",
+            "enum": ["neraca", "laba-rugi", "arus-kas", "lainnya"],
+            "required": true
+        },
+        "file": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": ["files"]
+        },
+        "summary": {
+            "type": "text"
+        }
+    }
+}

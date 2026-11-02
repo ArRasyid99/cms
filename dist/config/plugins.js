@@ -1,0 +1,56 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const allowedMediaTypes = [
+    'image/*',
+    'video/*',
+    'audio/*',
+    'application/pdf',
+    'application/msword',
+    'application/vnd.openxmlformats-officedocument.*',
+    'text/plain',
+    'text/csv',
+];
+const deniedTypes = [
+    'image/svg+xml',
+    'application/vnd.microsoft.portable-executable',
+    'application/x-msdownload',
+    'application/x-msdos-program',
+    'application/x-executable',
+    'application/x-dosexec',
+    'application/x-sh',
+    'text/x-shellscript',
+    'application/x-mach-binary',
+];
+const config = ({ env }) => ({
+    graphql: {
+        enabled: true,
+        config: {
+            endpoint: '/graphql',
+            shadowCRUD: true,
+            playgroundAlways: false,
+            depthLimit: 10,
+            amountLimit: 100,
+            apolloServer: {
+                tracing: false,
+            },
+        },
+    },
+    'users-permissions': {
+        config: {
+            jwtManagement: 'refresh',
+            sessions: {
+                httpOnly: true,
+            },
+        },
+    },
+    upload: {
+        config: {
+            sizeLimit: 10 * 1024 * 1024,
+            security: {
+                allowedTypes: allowedMediaTypes,
+                deniedTypes,
+            },
+        },
+    },
+});
+exports.default = config;
