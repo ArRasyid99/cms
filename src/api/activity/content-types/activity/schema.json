@@ -26,7 +26,7 @@
     "penanggungJawab": {
       "type": "string"
     },
-    "status": {
+    "statusKegiatan": {
       "type": "enumeration",
       "default": "terjadwal",
       "enum": [
