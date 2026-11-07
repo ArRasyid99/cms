@@ -28,8 +28,18 @@
         },
         "status": {
             "type": "enumeration",
-            "enum": ["terjadwal", "berjalan", "selesai"],
-            "default": "terjadwal"
+            "default": "terjadwal",
+            "enum": [
+                "terjadwal",
+                "berjalan",
+                "selesai"
+            ]
+        },
+        "judul": {
+            "type": "string"
+        },
+        "tanggal_kajian": {
+            "type": "date"
         }
     }
 }

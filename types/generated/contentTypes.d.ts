@@ -458,6 +458,7 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    judul: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -470,6 +471,7 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
     status: Schema.Attribute.Enumeration<['terjadwal', 'berjalan', 'selesai']> &
       Schema.Attribute.DefaultTo<'terjadwal'>;
     tanggal: Schema.Attribute.Date & Schema.Attribute.Required;
+    tanggal_kajian: Schema.Attribute.Date;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -648,6 +650,42 @@ export interface ApiFinancialReportFinancialReport
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiJadwalKajianJadwalKajian
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'jadwal_kajians';
+  info: {
+    displayName: 'Jadwal kajian';
+    pluralName: 'jadwal-kajians';
+    singularName: 'jadwal-kajian';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    judul: Schema.Attribute.String;
+    kategori: Schema.Attribute.String;
+    linkKajian: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::jadwal-kajian.jadwal-kajian'
+    > &
+      Schema.Attribute.Private;
+    lokasi: Schema.Attribute.String;
+    narasumber: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    tanggal: Schema.Attribute.Date;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    waktuMulai: Schema.Attribute.Time;
+    waktuSelesai: Schema.Attribute.Time;
   };
 }
 
@@ -1303,6 +1341,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::city.city': ApiCityCity;
       'api::financial-report.financial-report': ApiFinancialReportFinancialReport;
+      'api::jadwal-kajian.jadwal-kajian': ApiJadwalKajianJadwalKajian;
       'api::office-space.office-space': ApiOfficeSpaceOfficeSpace;
       'api::staff.staff': ApiStaffStaff;
       'api::tag.tag': ApiTagTag;

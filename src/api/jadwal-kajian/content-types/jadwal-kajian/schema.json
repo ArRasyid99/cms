@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jadwal_kajians",
+  "info": {
+    "singularName": "jadwal-kajian",
+    "pluralName": "jadwal-kajians",
+    "displayName": "Jadwal kajian"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "judul": {
+      "type": "string"
+    },
+    "tanggal": {
+      "type": "date"
+    },
+    "waktuMulai": {
+      "type": "time"
+    },
+    "waktuSelesai": {
+      "type": "time"
+    },
+    "narasumber": {
+      "type": "string"
+    },
+    "lokasi": {
+      "type": "string"
+    },
+    "kategori": {
+      "type": "string"
+    },
+    "linkKajian": {
+      "type": "string"
+    }
+  }
+}
