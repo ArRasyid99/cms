@@ -468,7 +468,9 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
     nama: Schema.Attribute.String & Schema.Attribute.Required;
     penanggungJawab: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    status: Schema.Attribute.Enumeration<['terjadwal', 'berjalan', 'selesai']> &
+    statusKegiatan: Schema.Attribute.Enumeration<
+      ['terjadwal', 'berjalan', 'selesai']
+    > &
       Schema.Attribute.DefaultTo<'terjadwal'>;
     tanggal: Schema.Attribute.Date & Schema.Attribute.Required;
     tanggal_kajian: Schema.Attribute.Date;
